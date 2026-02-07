@@ -14,31 +14,30 @@ Infra: Docker + systemd
 Протокол: WireGuard (UDP 51820)
 
 # Конфигурация
+```bash
 .env (опционально):
-
 VPN_PORT=51820
-
 ADMIN_LOGIN=admin
-
 ADMIN_PASS=admin123
-
 DB_PATH=vpn.db
-
 BIND_ADDR=:8080
-
 API (после логина)
 
 # Список юзеров
+```bash
 curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/api/users
 
 # Создать юзера
+```bash
 curl -X POST -d '{"login":"user1","email":"user1@test.com"}' \
   -H "Authorization: Bearer $TOKEN" http://localhost:8080/api/users
 
 # Скачать config
+```bash
 curl -H "Authorization: Bearer $TOKEN" \
   http://localhost:8080/api/users/user123/config > wg.conf
 
 # Лицензия
 
 MIT
+
